@@ -1,0 +1,15 @@
+version: "3.5"
+
+services:
+  database:
+    image: docker.io/library/postgres:14.0-bullseye
+    environment:
+      POSTGRES_PASSWORD: password # password for the connection
+      POSTGRES_DB: dbuser # this is the database which is created on the initial setup
+    # volumes:
+      # - pg_rlws-v2:/var/lib/postgresql/data # this named volume is to persist database
+    ports:
+      - 5433:5432 # make sure this host port(5433) doesn't conflict with external services. container pg port(5432)
+# volumes:
+  # pg_rlws-v2:
+    # driver: local
